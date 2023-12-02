@@ -5,6 +5,7 @@ Class {
 	#name : #RBBlog,
 	#superclass : #Object,
 	#instVars : [
+		'adminUser',
 		'posts'
 	],
 	#category : #'RecipeBlog-Model'
@@ -34,6 +35,18 @@ ifNotEmpty: [ :x | x anyOne ]
 ifEmpty: [ self new save ]
 ]
 
+{ #category : #'as yet unclassified' }
+RBBlog class >> defaultAdminLogin [
+^ 'mimicry'
+
+]
+
+{ #category : #'as yet unclassified' }
+RBBlog class >> defaultAdminPassword [
+^ 'password'
+
+]
+
 { #category : #'class initialization' }
 RBBlog class >> initialize [
 self reset
@@ -56,6 +69,11 @@ in noSQL databases"
 { #category : #initialization }
 RBBlog class >> reset [
 self initializeVoyageOnMemoryDB
+]
+
+{ #category : #'as yet unclassified' }
+RBBlog >> administrator [
+^ adminUser
 ]
 
 { #category : #'as yet unclassified' }
@@ -86,10 +104,19 @@ and: [ p isVisible ] ]
 
 ]
 
+{ #category : #'as yet unclassified' }
+RBBlog >> createAdministrator [
+^ RBAdministrator
+login: self class defaultAdminLogin
+password: self class defaultAdminPassword
+]
+
 { #category : #initialization }
 RBBlog >> initialize [
 super initialize.
-posts := OrderedCollection new
+posts := OrderedCollection new.
+adminUser := self createAdministrator
+
 ]
 
 { #category : #removing }
