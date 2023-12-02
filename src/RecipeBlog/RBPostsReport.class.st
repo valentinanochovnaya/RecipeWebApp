@@ -9,6 +9,5 @@ RBPostsReport class >> from: aBlog [
 | allBlogs |
 allBlogs := aBlog allBlogPosts.
 ^ self rows: allBlogs description: allBlogs anyOne
-magritteDescription 
-
+magritteDescription
 ]

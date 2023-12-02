@@ -10,7 +10,6 @@ Class {
 { #category : #hooks }
 RBAdminComponent >> children [
 ^ super children copyWith: self report
-
 ]
 
 { #category : #comparing }
@@ -24,7 +23,7 @@ self answer
 
 ]
 
-{ #category : #comparing }
+{ #category : #initialization }
 RBAdminComponent >> initialize [
 super initialize.
 self report: (RBPostsReport from: self blog)
@@ -42,6 +41,7 @@ html render: self report ]
 { #category : #accessing }
 RBAdminComponent >> report [
 ^ report
+
 ]
 
 { #category : #accessing }
