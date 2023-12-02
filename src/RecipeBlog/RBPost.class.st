@@ -69,6 +69,54 @@ RBPost >> date: aDate [
 	date := aDate
 ]
 
+{ #category : #'as yet unclassified' }
+RBPost >> descriptionCategory [
+<magritteDescription>
+^ MAStringDescription new
+accessor: #category;
+yourself
+
+]
+
+{ #category : #'as yet unclassified' }
+RBPost >> descriptionDate [
+<magritteDescription>
+^ MADateDescription new
+accessor: #date;
+beRequired;
+yourself
+
+]
+
+{ #category : #'as yet unclassified' }
+RBPost >> descriptionText [
+<magritteDescription>
+^ MAMemoDescription new
+accessor: #text;
+beRequired;
+yourself
+
+]
+
+{ #category : #'acessing-magritte' }
+RBPost >> descriptionTitle [
+<magritteDescription>
+^ MAStringDescription new
+accessor: #title;
+beRequired;
+yourself
+]
+
+{ #category : #'acessing-magritte' }
+RBPost >> descriptionVisible [
+<magritteDescription>
+^ MABooleanDescription new
+accessor: #visible;
+beRequired;
+yourself
+
+]
+
 { #category : #initialization }
 RBPost >> initialize [
 	super initialize.

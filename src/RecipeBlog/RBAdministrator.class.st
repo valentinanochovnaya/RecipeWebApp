@@ -5,7 +5,7 @@ Class {
 		'login',
 		'password'
 	],
-	#category : #RecipeBlog
+	#category : #'RecipeBlog-Model'
 }
 
 { #category : #'as yet unclassified' }

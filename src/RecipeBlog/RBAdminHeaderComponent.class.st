@@ -6,7 +6,7 @@ Class {
 
 { #category : #comparing }
 RBAdminHeaderComponent >> createHeaderComponent [
-^ RBAdminHeaderComponent from: self
+^ self class from: self
 ]
 
 { #category : #rendering }
@@ -23,4 +23,15 @@ with: [
 html text: 'Disconnect '.
 html tbsGlyphIcon iconLogout ]
 
+]
+
+{ #category : #rendering }
+RBAdminHeaderComponent >> renderPublicViewButtonOn: html [
+self session isLogged ifTrue: [
+html tbsNavbarButton
+tbsPullRight;
+callback: [ component goToPostListView ];
+with: [
+html tbsGlyphIcon iconEyeOpen.
+html text: ' Public View' ]]
 ]

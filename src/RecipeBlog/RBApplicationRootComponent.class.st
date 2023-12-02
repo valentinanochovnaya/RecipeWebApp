@@ -19,9 +19,12 @@ RBApplicationRootComponent class >> initialize [
 | app |
 app := WAAdmin register: self asApplicationAt: 'RecipeBlog'.
 app
+preferenceAt: #sessionClass put: RBSession.
+app
 addLibrary: JQDeploymentLibrary;
 addLibrary: JQUiDeploymentLibrary;
 addLibrary: TBSDeploymentLibrary
+
 ]
 
 { #category : #hooks }
