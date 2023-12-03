@@ -15,16 +15,48 @@ Class {
 RBBlog class >> createDemoPosts [
 "RBBlog createDemoPosts"
 self current
-writeBlogPost: ((RBPost title: 'Mini Philly Cheesesteaks' text:
-'Miniaturized sandwiches dont usually float my boat, as they are almost always not as good as the full-sized versions. But this mini Philly cheesesteak recipe captures everything I love about the classic.' category:
-'Meat' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Greek-Beef-Pitas_exps71838_SD143204B12_04_1bC_RMS.jpg?fit=700%2C1024') visible: true);
-writeBlogPost: ((RBPost title: 'Berry-Beet Salad' text:
-'Here is a delightfully different salad that balances the earthy flavor of beets with the natural sweetness of berries. If you prefer, substitute crumbled feta for the goat cheese. —Amy Lyons, Mounds View, Minnesota'
-category: 'Salad' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Greek-Beef-Pitas_exps71838_SD143204B12_04_1bC_RMS.jpg?fit=700%2C1024') visible: true);
-writeBlogPost: ((RBPost title: 'Apple-Honey Dutch Baby.' text: 'I love to make this treat on Sunday morning. It is so impressive when it is served warm right out of the oven...and the apple honey filling is yummy! —Kathy Fleming, Lisle, Illinois'
-category: 'Bakery' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Greek-Beef-Pitas_exps71838_SD143204B12_04_1bC_RMS.jpg?fit=700%2C1024') visible: true);
-writeBlogPost: ((RBPost title: 'Mini-Chip Cocoa Pancakes' text: 'Whip up a batch of cocoa pancakes dotted with mini chocolate chips to satisfy your chocolate cravings first thing in the morning. Yum! —Joyce Moynihan, Lakeville, Minnesota' category: 'Breakfast' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Greek-Beef-Pitas_exps71838_SD143204B12_04_1bC_RMS.jpg?fit=700%2C1024') visible: true);
-writeBlogPost: ((RBPost title: 'Greek Beef Pitas' text: 'A local restaurant that is famous for pitas inspired me to make my own Greek-style sandwiches at home. Feel free to add olives if you would like. —Nancy Sousley, Lafayette, Indiana.' category: 'Breakfast' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Greek-Beef-Pitas_exps71838_SD143204B12_04_1bC_RMS.jpg?fit=700%2C1024') visible: true)
+writeBlogPost: ((RBPost title: 'Cheesy Summer Squash Flatbreads' text:
+'Ingredients
+3 small yellow summer squash, sliced 1/4 inch thick
+1 tablespoon olive oil
+1/2 teaspoon salt
+2 cups fresh baby spinach, coarsely chopped
+2 naan flatbreads
+1/3 cup roasted red pepper hummus
+1 carton (8 ounces) fresh mozzarella cheese pearls
+Pepper Preheat oven to 425°. Toss squash with oil and salt; spread evenly in a 15x10x1-in. baking pan. Roast until tender, 8-10 minutes. Transfer to a bowl; stir in spinach.
+Place naan on a baking sheet; spread with hummus. Top with squash mixture and cheese. Bake on a lower oven rack just until cheese is melted, 4-6 minutes. Sprinkle with pepper.' category:
+'Breakfast' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps165395_SD163617B02_04_6b-1.jpg?fit=700%2C1024') visible: true);
+writeBlogPost: ((RBPost title: 'Basil-Butter Steaks with Roasted Potatoes' text:
+'Ingredients
+1 package (15 ounces) frozen Parmesan and roasted garlic red potato wedges
+4 beef tenderloin steaks (1-1/4 inches thick and 6 ounces each)
+1/2 teaspoon salt
+1/2 teaspoon pepper
+5 tablespoons butter, divided
+2 cups grape tomatoes
+1 tablespoon minced fresh basil
+
+Bake potato wedges according to package directions.
+Meanwhile, sprinkle steaks with salt and pepper. In a 10-in. cast-iron or other ovenproof skillet, brown steaks in 2 tablespoons butter. Add tomatoes to skillet. Bake, uncovered, at 425° until meat reaches desired doneness, 15-20 minutes (for medium-rare, a thermometer should read 135°; medium, 140°; medium-well, 145°).
+In a small bowl, combine basil and remaining butter. Spoon over steaks and serve with potatoes.'
+category: 'Meat' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Basil-Butter-Steaks-with-Roasted-Potatoes_EXPS_CISMZ19_119908_E01_03_4b-11.jpg?fit=700%2C1024') visible: true);
+writeBlogPost: ((RBPost title: 'Four-Berry Spinach Salad' text: '1 tablespoon canola oil
+1 tablespoon orange juice
+1 tablespoon red wine vinegar
+1 tablespoon balsamic vinegar
+1 tablespoon water
+2 teaspoons lemon juice
+1/2 teaspoon sugar
+1/2 teaspoon poppy seeds
+1/8 teaspoon ground allspice
+Dash ground cinnamon
+4 cups fresh baby spinach
+1/2 cup each fresh raspberries, blueberries, blackberries and sliced strawberries
+2 teaspoons chopped walnuts, toasted
+
+In a small bowl, whisk the first 10 ingredients until blended. In a medium bowl, combine spinach and berries. Drizzle with dressing and sprinkle with walnuts; toss to coat.'
+category: 'Salad' photoPath: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Four-Berry-Spinach-Salad_EXPS_SCM2BZ20_25841_E01_22_2b-10.jpg?fit=700%2C1024') visible: true)
 
 ]
 
@@ -124,6 +156,12 @@ RBBlog >> removeAllPosts [
 posts := OrderedCollection new.
 self save.
 
+]
+
+{ #category : #removing }
+RBBlog >> removeBlogPost: aPost [
+posts remove: aPost ifAbsent: [ ].
+self save.
 ]
 
 { #category : #accessing }

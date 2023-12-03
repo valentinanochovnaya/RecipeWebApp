@@ -73,7 +73,11 @@ RBPost >> date: aDate [
 RBPost >> descriptionCategory [
 <magritteDescription>
 ^ MAStringDescription new
+label: 'Category';
+priority: 500;
 accessor: #category;
+comment: 'General recipe if empty';
+componentClass: TBSMagritteTextInputComponent;
 yourself
 
 ]
@@ -83,17 +87,34 @@ RBPost >> descriptionDate [
 <magritteDescription>
 ^ MADateDescription new
 accessor: #date;
+priority: 300;
 beRequired;
 yourself
 
 ]
 
 { #category : #'as yet unclassified' }
+RBPost >> descriptionPhotoPath [
+<magritteDescription>
+^ MAMemoDescription new
+accessor: #photoPath;
+priority: 400;
+componentClass: TBSMagritteTextAreaComponent;
+beRequired;
+yourself
+]
+
+{ #category : #'as yet unclassified' }
 RBPost >> descriptionText [
 <magritteDescription>
 ^ MAMemoDescription new
+label: 'Text';
+priority: 200;
 accessor: #text;
 beRequired;
+requiredErrorMessage: 'A blog post must contain a text.';
+comment: 'Please enter a text';
+componentClass: TBSMagritteTextAreaComponent;
 yourself
 
 ]
@@ -102,19 +123,27 @@ yourself
 RBPost >> descriptionTitle [
 <magritteDescription>
 ^ MAStringDescription new
+label: 'Title';
+priority: 100;
 accessor: #title;
+requiredErrorMessage: 'A blog post must have a title.';
+comment: 'Please enter a title';
+componentClass: TBSMagritteTextInputComponent;
 beRequired;
 yourself
+
 ]
 
 { #category : #'acessing-magritte' }
 RBPost >> descriptionVisible [
 <magritteDescription>
 ^ MABooleanDescription new
+checkboxLabel: 'Visible';
+priority: 600;
 accessor: #visible;
+componentClass: TBSMagritteCheckboxComponent;
 beRequired;
 yourself
-
 ]
 
 { #category : #initialization }
